@@ -452,6 +452,7 @@ function Main() {
       <Carousel />
       <Body />
       <Footer />
+      <Body/>
     </div>
   );
 }
