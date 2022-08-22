@@ -1,12 +1,14 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/alt-text */
+import { useNavigate } from "react-router-dom";
 import "./Main.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import logo from "./Sigma_Logo.svg";
 
 const url = "";
-const Navbar = () => {
+export const Navbar = () => {
+  const navigate = useNavigate();
   return (
     <div>
       <header style={{ color: "white", backgroundColor: "lightseagreen" }}>
@@ -15,7 +17,7 @@ const Navbar = () => {
             className="container-fluid"
             style={{ paddingLeft: "8%", paddingRight: "3%" }}
           >
-            <a className="navbar-brand" href={url}>
+            <a className="navbar-brand" onClick={()=>navigate("/")}>
               <img src={logo} alt={logo} width="70px" height="70px"></img>
             </a>
             <button
@@ -32,7 +34,7 @@ const Navbar = () => {
             <div className="navbar-collapse collapse" id="navbarCollapse">
               <ul className="navbar-nav navbar-font me-auto mb-2 mb-md-0">
                 <li className="nav-item">
-                  <a href={url} className="nav-link px-2 text-white HoverAnim">
+                  <a className="nav-link px-2 text-white HoverAnim" onClick={()=>navigate("/")}>
                     หน้าแรก
                   </a>
                 </li>
@@ -64,11 +66,9 @@ const Navbar = () => {
                 <button type="button" className="btn btn-outline-light me-2">
                   เข้าสู่ระบบ
                 </button>
-                <a href="./">
-                  <button type="button" className="btn btn-warning">
-                    สมัครเรียน
-                  </button>
-                </a>
+                  <button type="button" className="btn btn-warning" onClick={()=>navigate("/register")}>
+                          สมัครเรียน
+                        </button>
               </div>
             </div>
           </div>
@@ -205,7 +205,6 @@ const Carousel = () => {
     </div>
   );
 };
-
 const Body = () => {
   return (
     <div>
@@ -391,7 +390,7 @@ const Body = () => {
   );
 };
 
-const Footer = () => {
+export const Footer = () => {
   return (
     <div>
       <div style={{ backgroundColor: "lightseagreen" }}>
@@ -452,7 +451,7 @@ function Main() {
       <Carousel />
       <Body />
       <Footer />
-      <Body/>
+      <Body />
     </div>
   );
 }
